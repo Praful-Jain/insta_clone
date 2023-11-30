@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in</title>
+  <link rel="stylesheet" href="{% static 'css/authentication/loginpage.css' %}">
+  <script src="https://kit.fontawesome.com/cf99b9e475.js" crossorigin="anonymous"></script>   
+</head>
+<body>
+  <div class="container1">
+    <div class="page">
+      <div class="title"><img src="{% static 'images/authentication/instagramlogo.png'%}" alt=""></div>
+      <form class="login-form">
+        <input type="text" placeholder="Phone number, username, or email">
+        <input type="password" placeholder="Password">
+        <button>Log in</button>
+        <div class="option">OR</div>
+      </form>
+      <div class="fblink"><span class="fab fa-facebook"></span><a href="#">Log in with Facebook</a></div>
+      <div class="forget-id"><a href="#">Forgotten your password?</a></div>
+    </div>
+    <div class="sign-up"><p>Don't have an account?<a href="#">Sign up</a></p></div>
+    <p>Get the app.</p>
+    <button type="button"><i class="fa-brands fa-apple"></i> App Store</button>    <!-- icon added using font awesome -->
+    <button type="button"><i class="fa-brands fa-google-play"></i> Google Play</button>
+  </div>
+</body>
+</html>

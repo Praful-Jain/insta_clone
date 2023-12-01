@@ -13,22 +13,25 @@
   <div class="container2">
         <div class="page">
             <div class="title"><img src="{% static 'images/authentication/instagramlogo.png'%}" alt=""></div>
-            <form class="signup-form" method="post">
+            <p class="a">Sign up to see photos and videos from your friends.</p>
+            <button class="btn"><span class="fab fa-facebook "></span>Log in with Facebook</button>
+            <div class="option">OR</div>  
+
+            <form class="signup-form" method="post" novalidate>
                 {% csrf_token %}
-                <p class="a">Sign up to see photos and videos from your friends.</p>
-                <button><span class="fab fa-facebook"></span>Log in with Facebook</button>
-                <div class="option">OR</div>
-                <input id="id_email" type="email" name="email" placeholder="Email address">
-                <input id="id_full_name" type="text" name="full_name" placeholder="Full Name">
-                <input id="id_username" type="text" name="username" placeholder="Username">
-                <input id="id_password1" type="password" name="password1" placeholder="Password">
-                <input id="id_password2" type="password" name="password2" placeholder="Retype Password">
+                <!-- {{form.errors}} -->
+                {% for field in form %}
+                  {{field}}
+                   {% for error in field.errors %}
+                    <p class="error">{{ error }}</p>
+                  {% endfor %}
+                {% endfor %}
                 <p class="b">People who use our service may have uploaded your contact information to Instagram. Learn more</p>
                 <p class="c">By signing up, you agree to our Terms, Privacy Policy and Cookies Policy.</p>
                 <button type="submit">Sign Up</button>
             </form>
         </div>
-        <div class="log-in"><p>Have an account?<a href="#">Log in</a></p></div>
+        <div class="log-in"><p>Have an account?<a href="{% url 'login_view' %}">Log in</a></p></div>
         <p>Get the app.</p>
         <button type="button"><i class="fa-brands fa-apple"></i> App Store</button>    <!-- icon added using font awesome -->
         <button type="button"><i class="fa-brands fa-google-play"></i> Google Play</button>

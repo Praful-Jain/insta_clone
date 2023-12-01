@@ -130,3 +130,4 @@ MEDIA_URL = 'media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'user.User'    # to inform django to use my 'User model' for authentication
+LOGIN_URL = 'login_view'        # if non-logged-in user tries to access user feed he/she will be redirected to 'login_view'

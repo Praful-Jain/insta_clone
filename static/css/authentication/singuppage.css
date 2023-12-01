@@ -1,140 +1,152 @@
 body{
-    display: flex; 
-    justify-content: center;
-    min-height: 100vh;
-    font-family: sans-serif;
-  }
-  .container2{
-    text-align: center;
-    padding-top: 40px;
-  }
-  .container2 .page{
-    width: 350px;
-    background-color: #fff;
-    border-radius: 5px;
-    padding-bottom: 40px;
-    border: 1.5px solid gainsboro;
-  }
-  .container2 .title{
-    padding: 50px 0 0;
-  }
+  display: flex; 
+  justify-content: center;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+.container2{
+  text-align: center;
+  padding-top: 40px;
+}
+.container2 .page{
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  padding-bottom: 40px;
+  border: 1.5px solid gainsboro;
+}
+.container2 > .page > .title{
+  padding: 50px 0 0;
+}
+.container2 > .page > .a{
+  width: 75%;
+  font-weight: bold;
+  font-size: 16px;
+  color: gray;
+}
 
-  .signup-form{
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-  }
+.page button{
+  background: rgb(7, 49, 187);
+  font-size: 15px;
+  padding: 7px 40px;
+  margin-top: 5px;
+  color: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;  /* when our cursor points to this button its type changes */
+  opacity: .8;
+}
+.page button > span{
+  padding-right: 5px;
+}
 
-  .signup-form > .a{
-    font-weight: bold;
-    font-size: 16px;
-    color: gray;
-  }
+.page > .option{
+  width: 75%;
+  color: grey;
+  margin: 15px 0;
+  font-weight: bold;
+  position: relative;
+}
+/* for ----- OR ----- */
+.page > .option:before{
+  position: absolute; /* positioned relative to 'OR' (nearest positioned ancestor) */
+  content: '';
+  width: 37%;
+  height: 1px;
+  background: grey;
+  left: 0;
+  top: 50%;
+}
+.page > .option:after{
+  position: absolute; /* positioned relative to 'OR' (nearest positioned ancestor) */
+  content: '';
+  width: 37%;
+  height: 1px;
+  background: grey;
+  right: 0;
+  top: 50%;
+}
 
-  .signup-form button{
-    background: rgb(7, 49, 187);
-    font-size: 15px;
-    padding: 7px 0;
-    margin-top: 5px;
-    color: white;
-    border: 1px solid gray;
-    border-radius: 10px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    cursor: pointer;  /* when our cursor points to this button its type changes */
-    opacity: .8;
-  }
-  .signup-form button > span{
-    padding-right: 5px;
-  }
 
-  .signup-form .option{
-    color: grey;
-    margin: 15px 0;
-    font-weight: bold;
-    position: relative;
-  }
-  /* for ----- OR ----- */
-  .signup-form .option:before{
-    position: absolute; /* positioned relative to 'OR' (nearest positioned ancestor) */
-    content: '';
-    width: 37%;
-    height: 1px;
-    background: grey;
-    left: 0;
-    top: 50%;
-  }
-  .signup-form .option:after{
-    position: absolute; /* positioned relative to 'OR' (nearest positioned ancestor) */
-    content: '';
-    width: 37%;
-    height: 1px;
-    background: grey;
-    right: 0;
-    top: 50%;
-  }
+.signup-form{
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
 
-  .signup-form input{
-    margin-bottom: 5px;
-    border: 1px solid gray;
-    background-color: lightgrey;
-    border-radius: 3px;
-    outline: none;
-    height: 30px;
-    padding: 5px;
-    font-size: 17px;
-    opacity: .4;
-  }
-  .signup-form input::placeholder{
-    color: black;
-    font-size: 13px;
-    transition: .3s ease;
-  }
-  /* on click */
-  .signup-form input:focus::placeholder{
-    font-size: 10px;
-    transform: translateY(-10px);   /* on click go up by 10px */
-  }
-  
-  .signup-form > .b{
-    color: gray;
-    font-size: 11px;
-    line-height: 15px;
-  }
-  .signup-form > .c{
-    color: gray;
-    font-size: 11px;
-    line-height: 15px;
-    font-weight: bold;
-  }
-  
-  .log-in{
-    width: 350px;
-    border: 1.5px solid gainsboro;
-    margin-top: 10px;
-    font-size: 15px;
-    background-color: white;
-  }
-  .log-in a{
-    text-decoration: none;
-    color: #008aff;
-    margin-left: 5px;
-  }
 
-  .container2 > p{
-    font-size: 15px;
-  }
 
-  .container2 > button{
-    color: white;
-    background: black;
-    border: 1px solid;
-    height: 50px;
-    border-radius: 10px;
-    padding: 0 10px;
-    cursor: pointer;  /* when our cursor points to this button its type changes */
-  }
-  .container2 > button > i{
-    font-size: 25px;
-  }
+.signup-form input{
+  margin-bottom: 5px;
+  border: 1px solid gray;
+  background-color: lightgrey;
+  border-radius: 3px;
+  outline: none;
+  height: 30px;
+  padding: 5px;
+  font-size: 17px;
+  opacity: .4;
+}
+.signup-form input::placeholder{
+  color: black;
+  font-size: 13px;
+  transition: .3s ease;
+}
+/* on click */
+.signup-form input:focus::placeholder{
+  font-size: 10px;
+  transform: translateY(-10px);   /* on click go up by 10px */
+}
+
+.error {
+  color: #FF0000; /* Set the color for error messages */
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.signup-form > .b{
+  color: gray;
+  font-size: 11px;
+  line-height: 15px;
+}
+.signup-form > .c{
+  color: gray;
+  font-size: 11px;
+  line-height: 15px;
+  font-weight: bold;
+}
+
+.log-in{
+  width: 350px;
+  border: 1.5px solid gainsboro;
+  margin-top: 10px;
+  font-size: 15px;
+  background-color: white;
+}
+.log-in a{
+  text-decoration: none;
+  color: #008aff;
+  margin-left: 5px;
+}
+
+.container2 > p{
+  font-size: 15px;
+}
+
+.container2 > button{
+  color: white;
+  background: black;
+  border: 1px solid;
+  height: 50px;
+  border-radius: 10px;
+  padding: 0 10px;
+  cursor: pointer;  /* when our cursor points to this button its type changes */
+}
+.container2 > button > i{
+  font-size: 25px;
+}

@@ -7,9 +7,18 @@ body{
 }
 .container1{
   text-align: center;
+  display: flex;
+  gap: 20px;
+}
+
+.phone{
+  max-height: 550px;
 }
 .container1 .page{
   width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #fff;
   border-radius: 5px;
   padding-bottom: 15px;
@@ -58,14 +67,15 @@ body{
   cursor: pointer;  /* when our cursor points to this button its type changes */
   opacity: .8;
 }
-.login-form .option{
+.option{
+  width: 75%;
   color: grey;
   margin: 10px 0;
   font-weight: bold;
   position: relative;
 }
 /* for ----- OR ----- */
-.login-form .option:before{
+.option:before{
   position: absolute; /* positioned relative to 'OR' (nearest positioned ancestor) */
   content: '';
   width: 37%;
@@ -74,7 +84,7 @@ body{
   left: 0;
   top: 50%;
 }
-.login-form .option:after{
+.option:after{
   position: absolute; /* positioned relative to 'OR' (nearest positioned ancestor) */
   content: '';
   width: 37%;
@@ -125,7 +135,7 @@ body{
   font-size: 15px;
 }
 
-.container1 > button{
+.main > button{
   color: white;
   background: black;
   border: 1px solid;
@@ -134,6 +144,6 @@ body{
   padding: 0 10px;
   cursor: pointer;  /* when our cursor points to this button its type changes */
 }
-.container1 > button > i{
+i{
   font-size: 25px;
 }

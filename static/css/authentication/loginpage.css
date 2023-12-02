@@ -33,6 +33,7 @@ body{
   flex-direction: column;
   margin: auto;
 }
+
 .login-form input{
   margin-bottom: 5px;
   border: 1px solid gray;

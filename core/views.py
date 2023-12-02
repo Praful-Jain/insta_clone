@@ -5,4 +5,3 @@ from django.views.generic import TemplateView  # it directly renders our templat
 
 class HomeView(TemplateView):
     template_name = 'core/feed.html'
-

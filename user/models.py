@@ -4,7 +4,7 @@ from user.managers import CustomUserManager                  # import custom man
 
 # Inherit 'AbstractUser' model's fields and add some new fields(ie.picture,full_name,email) and create a new model - custom User
 class User(AbstractUser):
-    picture = models.ImageField(upload_to='profile_pictures', null=False, blank=False)
+    picture = models.ImageField(upload_to='profile_pictures', null=True, blank=True)
     full_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     first_name = None   # no need of these pre-defined fields
@@ -12,7 +12,7 @@ class User(AbstractUser):
         
         
     USERNAME_FIELD = 'email'              # 'email' field - used as a login credintial at the time of login (by default 'username' field is used)
-    REQUIRED_FIELDS = ['full_name',]      # will pass those fields which we require (by default consider default fields)
+    REQUIRED_FIELDS = ['full_name','username',]      # will pass those fields which we require (by default consider default fields)
     
     # Every Django model has at least one manager, and it's created by default if you don't explicitly define one.
     # A manager acts as a mediator between the database and the model,

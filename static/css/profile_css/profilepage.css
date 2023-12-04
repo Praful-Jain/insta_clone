@@ -1,0 +1,158 @@
+.body{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    display: flex;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
+    padding-left: 20px; 
+    padding-top: 50px;
+    border-right: 1px solid grey;
+    width: 15vw;
+    height: 200vh;
+    position: fixed;
+}
+.navbar > .icon{
+    display: none;
+}
+.navbar > .logo{
+    width: 50%;
+}
+.navbar > .tools{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.tools button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.tools button > div{
+    display: flex;
+    gap: 10px;
+}
+.tools button > div > img{
+    display: inline;
+    height: 25px;
+}
+.tools button > div > p{
+    margin: 0;
+}
+.tools > .thread{
+    margin-top: 200px;
+}
+
+.main{
+    width: 83vw;
+    height: 100vw;
+    margin-left: 17vw;
+    display: flex;
+    justify-content: center;
+}
+
+.center{
+    width: 50vw;
+    height: 100vw;
+    display: flex;
+    flex-direction: column;
+    /* background-color: antiquewhite; */
+}
+.head{
+    display: flex;
+    padding: 40px;
+    padding-right: 0;
+    gap: 70px;
+    font-family: sans-serif;
+    border-bottom: 1px solid lightgray;
+}
+.a{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.a .profile_img{
+    width: 175px;
+    height: 175px;
+    border-radius: 100%;
+}
+.a .add{
+    width: 100px;
+    height: 100px;
+}
+.b{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.c{
+    padding-top: 20px;
+    display: flex;
+    height: 30px;
+    align-items: center;
+    gap: 20px;
+}
+.c button{
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.c img{
+    height: 30px;
+}
+.d{
+    display: flex;
+    gap: 40px;
+}
+.e h5{
+    margin: 0;
+}
+
+@media (min-width: 800px) and (max-width: 1300px) {
+    .navbar{
+        width: 50px;
+    }
+    .navbar > .logo {
+        display: none;
+    }
+    .navbar > .icon {
+        display: inline;
+        height: 30px;
+    }
+    .tools button > div > p {
+        display: none;
+    }
+
+    .main{
+        width: 94vw;
+        margin-left: 70px;
+    }
+    .center{
+        width: 90vw;
+    }
+}
+
+@media (max-width: 800px){
+    .navbar{
+        display: none;
+    }
+    .main{
+        width: 100vw;
+        margin-left: 0;
+    }
+    .center{
+        width: 100vw;
+    }
+}

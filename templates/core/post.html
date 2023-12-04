@@ -3,27 +3,49 @@
 {% for post in all_posts %}
   <div class="post">
     <div class="a">
-      <div class="icon"></div>
+      <div class="icon">
+        {% if post.user.picture %}
+          <img src="{{ post.user.picture.url }}" alt="">
+        {% else %}
+          <img src="{% static 'images/home_images/profile.svg' %}" alt="..">
+        {% endif %}
+      </div>
       <div class="name">{{ post.user.username }}</div>
       <img src="{% static 'images/home_images/moreoptions.png' %}" alt="">
     </div>
     <div class="b" >
-      <img src="{{ post.image.url }}" alt="">
+      <img src="{{ post.image.url }}" alt="">   <!-- accessing media image -->
     </div>
     <div class="c">
-      <img src="{% static 'images/home_images/notification.svg' %}" alt="">
+
+      <form method="POST" action="{% url 'post_like_unlike_view' post.pk %}">
+        {% csrf_token %}
+        <button type="submit">
+          {% if request.user in post.liked_users %}   <!-- User has already liked the post, show the unlike button -->
+            <img id="heart_img_{{ post.id }}" src="{% static 'images/home_images/heart-solid.svg' %}" alt="">
+          {% else %}
+            <img id="heart_img_{{ post.id }}" src="{% static 'images/home_images/notification.svg' %}" alt="">
+          {% endif %}
+        </button>
+      </form>
+      
       <img src="{% static 'images/home_images/message.svg' %}" alt="">
       <img class="bookmark" src="{% static 'images/home_images/bookmark.png' %}" alt="">
+      
     </div>
     <div class="d">
-      <p> 10likes</p>
+      <p>{{ post.likes_count }} likes</p>
     </div>
     <div class="e">
       <p><span style="font-weight: bold;">{{ post.user.username }}</span> {% if post.text %}{{ post.text }}{% endif %} </p>
     </div>
     <div class="f">View all comments</div>
     <div class="g">
-      <input type="text" placeholder="Add a comment...">
+      <form method="POST" action="{% url 'post_comment_view' post.pk %}">
+        {% csrf_token %}
+        <input type="text" id="comment" name="comment_text" placeholder="Add a comment...">
+        <button type="submit">Post</button>
+      </form>
     </div>
   </div>
 {% endfor %}

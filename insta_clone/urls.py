@@ -26,6 +26,8 @@ urlpatterns = [
     path('', include('user.urls')),
 ]
 
+
+# By default django is capable to serve static files, so in oreder to make django capable of serving media files
 # Serve static and media files during development
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

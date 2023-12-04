@@ -21,6 +21,18 @@ class Post(models.Model):
         auto_save_current_user(self)
         super(Post, self).save(*args, **kwargs)
 
+    # to get the number of likes on a post
+    # reverse access --> from User to Post .... related_name='like_set' (by default)
+    @property
+    def likes_count(self):  
+        count = self.like_set.count()
+        return count
+
+    # to get the number of users liked a particular post
+    @property
+    def liked_users(self):
+        # Return the queryset of users who liked the post
+        return User.objects.filter(like__post=self)
 
 # Comments model
 class Comment(models.Model):
@@ -42,12 +54,11 @@ class Comment(models.Model):
 class Like(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE, editable=False)
-    is_like = models.BooleanField(default=True)     # to track user activity
     liked_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     
     def __str__(self):
-        return str(self.is_like)
+        return str(self.post.id)
 
     def save(self, *args, **kwargs):
         auto_save_current_user(self)

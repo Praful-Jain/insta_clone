@@ -105,6 +105,11 @@
     border-radius: 100%;
     border: solid;
 }
+.post > .a > .icon > img{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
 .post > .a > .name{
     font-weight: bolder;    
 }
@@ -127,20 +132,28 @@
     gap: 10px;
     position: relative;
 }
-.post > .c > img{
+.post > .c button{  /* like button*/
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.post > .c img{
     height: 25px;
 }
-.post > .c > .bookmark{
+
+.post > .c .bookmark{
     position: absolute;
     right: 0;
 }
 .post > .d > p{
     margin: 0;
+    font-weight: bolder;
 }
 .post > .e > p{
     margin: 0;
 }
-.post > .g > input{
+.post > .g input{
     width: 98%;
 }
 .center > .tools{

@@ -4,7 +4,7 @@ from .models import Post, Comment, Like, Follow
 # Creating custom model admins  (in order to see more fields)
 class PostModelAdmin(admin.ModelAdmin):
     model = Post
-    list_display = ('text','image','user','posted_on','updated_on')   # It is ModelAdmin's attribute --we will give the fields which we want to show to admin
+    list_display = ('text','image','user','posted_on','updated_on')   # It is ModelAdmin's attribute --we will give the fields which we want to display at admin 
 
 class CommentModelAdmin(admin.ModelAdmin):
     model = Comment

@@ -6,6 +6,13 @@
     <title>Document</title>
 </head>
 <body>
+    {% if messages %}
+        {% for message in messages %}
+            <div role="alert" style="font-size: 13px;">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
     <h1>Home</h1>
     <form action="{% url 'signout_view' %}" method="POST">
         {% csrf_token %}

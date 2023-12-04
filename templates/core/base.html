@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/home_css/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home_css/popup.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-ezH3R2z8rM8iJQL7E1Dt5ewJkviqZIuywCcFay1meiH0FUpnTOw8gF7JKDA9D4S+Q" crossorigin="anonymous">
+</head>
+<body>
+    <form action="{% url 'signout_view' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">
+            LOGOUT
+        </button>
+    </form>  
+
+    <div class="container">
+
+        {% include 'core/navbar.html' %}
+
+        <div class="center">
+            <div class="head">
+                <img src="{% static 'images/home_images/instagramlogo.png' %}" alt="">
+                <input type="text" placeholder="Search">
+            </div>
+
+            <div class="stories">
+                <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div>
+            </div>
+
+            {% include 'core/post.html' %}
+            {% include 'core/tools.html' %}
+        </div>
+
+        <div class="suggestion">
+            <img src="{% static 'images/home_images/suggested.png' %}" alt="">
+        </div>
+
+        <script type="module" src="{% static 'javascript/home_js/homepage.js' %}"></script>
+        
+    </div>
+</body>
+</html>

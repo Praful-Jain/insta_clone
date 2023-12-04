@@ -16,7 +16,7 @@ class Post(models.Model):
     def __str__(self):
         return str(self.pk)
 
-    # to catch the current user
+    # to save the current loggedin user
     def save(self, *args, **kwargs):
         auto_save_current_user(self)
         super(Post, self).save(*args, **kwargs)

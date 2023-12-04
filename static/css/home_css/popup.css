@@ -1,0 +1,80 @@
+
+.create_post{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.popup{
+    border: 1px solid;
+    width: 400px;
+    border-radius: 5px;
+    padding: 20px;
+    padding-top: 0;
+    position: absolute;
+    background-color: white;
+    top: -150%;
+    left: auto;
+    margin: auto;
+    opacity: 0;
+    transition: top 0ms ease-in-out 200ms,
+                opacity 200ms ease-in-out 0ms,
+                transform 20ms ease-in-out 0ms;
+}
+
+
+.popup.active {
+    top: 15%;
+    left: 200%;
+    opacity: 1;
+    transition: top 0ms ease-in-out 0ms,
+    opacity 200ms ease-in-out 0ms,
+    transform 20ms ease-in-out 0ms;
+}
+
+.overlay.blank {
+    height: 100vh;
+    width: 100vw;
+    display: none;
+}
+
+.popup > .a{
+    display: flex;
+    align-items: center;
+    gap: 150px;
+}
+.popup .a .close_btn{
+    border: none;
+    border-radius: 100%;
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.popup form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.popup form textarea{
+    height: 70px;
+    width: 300px;
+    border-radius: 10px;
+}
+.popup form .browse{
+    padding: 5px;
+    font-family: sans-serif;
+    background-color: lightgray;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.popup form .create{
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    background-color: cornflowerblue;
+    color: white;
+}

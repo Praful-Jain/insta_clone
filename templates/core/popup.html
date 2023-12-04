@@ -1,0 +1,19 @@
+<div class="create_post">
+    <div class="popup">
+        <div class="a">
+            <h2>Create new post</h2>
+            <button class="close_btn">&times;</button>
+        </div>
+        <div>
+            <form method="post" action="{%url 'post_create_view' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% if error %} 
+                    <p style="color: red; margin: 0; margin-bottom: 10px;">{{error}}</p>
+                {% endif %}
+                <textarea name="text" placeholder="Enter text" ></textarea>
+                <input type="file" name="image" class="browse" accept="image/*">
+                <button class="create" type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+</div>

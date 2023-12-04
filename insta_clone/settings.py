@@ -71,11 +71,6 @@ TEMPLATES = [
     },
 ]
 
-# by default django searches for  static files inside app's directory, 
-# that's why we are explicitly mentioning to search static files in the root directory
-STATICFILES_DIRS = [
-  BASE_DIR,"static"
-]
 
 WSGI_APPLICATION = 'insta_clone.wsgi.application'
 
@@ -129,8 +124,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
+STATIC_URL = 'static/'
+# By default django searches for  static files inside app's directory, that's why we are explicitly mentioning to search static files in the root directory
+STATICFILES_DIRS = [BASE_DIR.joinpath('static')]    
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR.joinpath('media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

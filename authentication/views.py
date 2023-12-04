@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import View       # class based view(CBV)
 from .forms import UserForm
 from django.contrib.auth import (authenticate, login, logout, get_user_model)
+from django.contrib import messages
 
 User = get_user_model()
 
@@ -48,6 +49,7 @@ class LogInView(View):
             return render(request, self.template_name, {'error':'Invalid login!'})   # we can also use messages in-built concept
         else:   # login the user
             login(request,user)
+            messages.success(request, 'Logged in successfully', extra_tags='success')
             return redirect('home_feed_view')        # redirect the user to its home page
 
 

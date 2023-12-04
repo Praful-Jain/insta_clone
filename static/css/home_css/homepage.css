@@ -1,0 +1,243 @@
+.body{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    display: flex;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
+    padding-left: 20px; 
+    padding-top: 50px;
+    border-right: 1px solid grey;
+    width: 15vw;
+    height: 200vh;
+    position: fixed;
+}
+.navbar > .icon{
+    display: none;
+}
+.navbar > .logo{
+    width: 50%;
+}
+.navbar > .tools{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.tools > button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.tools > button > div{
+    display: flex;
+    gap: 10px;
+}
+.tools > button > div > img{
+    display: inline;
+    height: 25px;
+}
+.tools > button > div > p{
+    margin: 0;
+}
+.tools > .thread{
+    margin-top: 250px;
+}
+
+
+
+.center{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding-top: 40px;
+    width: 55vw;
+    height: 200vh;
+    min-width: 450px;
+    margin-left: 15vw;
+}
+.center > .head{
+    display: none;
+}
+
+.stories {
+    display: flex;
+    gap: 20px; /* Adjust the gap between circles as needed */
+}
+.stories > div { 
+    border-radius: 100%; /* Creates a circular shape */
+    width: 50px;
+    height: 50px;
+    border: solid;
+    /* background-image: url(./Home_images/notification.svg);
+    background-size: contain; or contain
+    background-size: width height; (e.g., background-size: 100% 100px;
+    background-position: center;
+    background-repeat: no-repeat; */
+}
+
+
+.post{
+    width: 50%;
+    padding: 20px 0px;
+    border-bottom: 2px solid grey;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.post > .a{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+.post > .a > .icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: solid;
+}
+.post > .a > .name{
+    font-weight: bolder;    
+}
+.post > .a > img{
+    position: absolute;
+    right: 0;
+}
+.post > .b{ 
+    border: .5px solid lightgray;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.post > .b > img{
+    max-height: 500px;
+    max-width: 400px;
+}
+.post > .c{
+    display: flex;
+    gap: 10px;
+    position: relative;
+}
+.post > .c > img{
+    height: 25px;
+}
+.post > .c > .bookmark{
+    position: absolute;
+    right: 0;
+}
+.post > .d > p{
+    margin: 0;
+}
+.post > .e > p{
+    margin: 0;
+}
+.post > .g > input{
+    width: 98%;
+}
+.center > .tools{
+    display: none;
+}
+
+
+.suggestion{
+    width: 30vw;
+    border-left: .5px solid lightgray;
+}
+.suggestion > img{
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+
+@media (min-width: 800px) and (max-width: 1300px) {
+    .navbar{
+        width: 50px;
+    }
+    .navbar > .logo {
+        display: none;
+    }
+    .navbar > .icon {
+        display: inline;
+        height: 30px;
+    }
+    .tools > button > div > p {
+        display: none;
+    }
+    
+    .post{
+        width: 60%;
+    }
+    .suggestion{
+        display: none;
+    }
+    .center{
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 800px){
+    .navbar{
+        display: none;
+    }
+    .center{
+        width: 100%;
+        margin: 0;
+        padding-top: 0;
+    }
+    .center > .head{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 20px;
+        border-bottom: 1px solid gray;
+        position: relative;
+    }
+    .center > .head > input{
+        position: absolute;
+        right: 5%;
+        background-color: lightgray;
+        opacity: .6;
+        border-radius: 5px;
+        padding: 5px;
+    }
+    .post{
+        width: 90%;
+    }
+    .center > .tools{
+        width: 100%;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        background-color: white;
+        padding: 20px;
+        justify-content: center;
+        gap: 30px;
+        border: .5px solid lightgray;
+    }
+    .center > .tools > button{
+        padding: 0;
+        margin: 0;
+        height: 10px;
+    }
+    .center > .tools p{
+        display: none;
+    }
+    .center > .tools .thread,
+    .center > .tools .more{
+        display: none;
+    }
+
+    .suggestion{
+        display: none;
+    }
+
+}

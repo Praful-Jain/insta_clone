@@ -1,0 +1,29 @@
+{% load static %}
+
+{% for post in all_posts %}
+  <div class="post">
+    <div class="a">
+      <div class="icon"></div>
+      <div class="name">{{ post.user.username }}</div>
+      <img src="{% static 'images/home_images/moreoptions.png' %}" alt="">
+    </div>
+    <div class="b" >
+      <img src="{{ post.image.url }}" alt="">
+    </div>
+    <div class="c">
+      <img src="{% static 'images/home_images/notification.svg' %}" alt="">
+      <img src="{% static 'images/home_images/message.svg' %}" alt="">
+      <img class="bookmark" src="{% static 'images/home_images/bookmark.png' %}" alt="">
+    </div>
+    <div class="d">
+      <p> 10likes</p>
+    </div>
+    <div class="e">
+      <p><span style="font-weight: bold;">{{ post.user.username }}</span> {% if post.text %}{{ post.text }}{% endif %} </p>
+    </div>
+    <div class="f">View all comments</div>
+    <div class="g">
+      <input type="text" placeholder="Add a comment...">
+    </div>
+  </div>
+{% endfor %}

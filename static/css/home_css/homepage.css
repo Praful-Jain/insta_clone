@@ -30,24 +30,25 @@
     flex-direction: column;
     gap: 30px;
 }
-.tools > button{
+
+.tools button{
     background: none;
     border: none;
     cursor: pointer;
 }
-.tools > button > div{
+.tools button > div{
     display: flex;
     gap: 10px;
 }
-.tools > button > div > img{
+.tools button > div > img{
     display: inline;
     height: 25px;
 }
-.tools > button > div > p{
+.tools button > div > p{
     margin: 0;
 }
 .tools > .thread{
-    margin-top: 250px;
+    margin-top: 200px;
 }
 
 
@@ -168,7 +169,7 @@
         display: inline;
         height: 30px;
     }
-    .tools > button > div > p {
+    .tools button > div > p {
         display: none;
     }
     

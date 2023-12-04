@@ -11,7 +11,10 @@
     <button type="button"><div><img src="{% static 'images/home_images/profile.svg' %}"  alt=""><p>Profile</p></div></button>
     <button type="button" class="thread"><div><img src="{% static 'images/home_images/threads.svg' %}"  alt=""><p>Threads</p></div></button>
     <button type="button" class="more"><div><img src="{% static 'images/home_images/more.svg' %}"  alt=""><p>More</p></div></button>
-    <!-- <button type="button" class="log"><div><img src="{% static 'images/home_images/logout.png' %}" alt=""><p>Log out</p></div></button> -->
+    <form action="{% url 'signout_view' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="log"><div><img src="{% static 'images/home_images/logout.png' %}" alt=""><p>Log out</p></div></button>
+    </form> 
 </div>        
 
 

@@ -11,15 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-ezH3R2z8rM8iJQL7E1Dt5ewJkviqZIuywCcFay1meiH0FUpnTOw8gF7JKDA9D4S+Q" crossorigin="anonymous">
 </head>
 <body>
-    <form action="{% url 'signout_view' %}" method="POST">
-        {% csrf_token %}
-        <button type="submit">
-            LOGOUT
-        </button>
-    </form>  
-
     <div class="container">
-
+        
         {% include 'core/navbar.html' %}
 
         <div class="center">

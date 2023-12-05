@@ -24,13 +24,3 @@ document.querySelector(".close_btn2").addEventListener("click", function () {
 //   }
 // }
 
-// Get the scroll position from the session storage
-var scrollPosition = sessionStorage.getItem('scrollPosition');
-
-// Scroll to the saved position or the top if no position is saved
-window.scrollTo(0, scrollPosition || 0);
-
-// Save the current scroll position in the session storage when the page is unloaded
-window.addEventListener('beforeunload', function() {
-    sessionStorage.setItem('scrollPosition', window.scrollY);
-});

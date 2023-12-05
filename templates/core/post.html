@@ -10,7 +10,9 @@
           <img src="{% static 'images/home_images/profile.svg' %}" alt="..">
         {% endif %}
       </div>
-      <div class="name">{{ post.user.username }}</div>
+      <a href="{% url 'profile_view' post.user.username %}" style="text-decoration: none; font-family: sans-serif; font-weight: bold; color: black;">
+        <div class="name">{{ post.user.username }}</div>
+      </a>
       <img src="{% static 'images/home_images/moreoptions.png' %}" alt="">
     </div>
     <div class="b" >

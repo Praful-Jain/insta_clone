@@ -20,12 +20,10 @@ class PostCreateView(View):
             print('success')
             form.save()     # save the user's post in 'Post' table
             return redirect(request.META.get('HTTP_REFERER'))
-            return redirect('home_feed_view')       # if post saved successfully redirect to home_feed_view
         else:
             print(form.errors)
             print('invalid')
             return redirect(request.META.get('HTTP_REFERER'))
-            return redirect('home_feed_view')
             return render(request, self.template_name, {'error':'Add image!'})   # otherwise render the error in the form
            
            

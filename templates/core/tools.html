@@ -11,9 +11,9 @@
     <a href="{% url 'profile_view' request.user.username %}">
         <button type="button"><div>
             {% if request.user.picture %}
-                <img src="{{ request.user.picture.url }}"  alt=""><p>Profile</p></div>
+                <img src="{{ request.user.picture.url }}"  style="border-radius: 100%;" alt=""><p>Profile</p></div>
             {% else %}
-                <img src="{% static 'images/home_images/profile.svg' %}"  alt=""><p>Profile</p></div>
+                <img src="{% static 'images/home_images/profile.svg' %}"  style="border-radius: 100%;" alt=""><p>Profile</p></div>
             {% endif %}
         </button>
     </a>

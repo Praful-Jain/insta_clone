@@ -19,10 +19,12 @@ class PostCreateView(View):
         if form.is_valid():
             print('success')
             form.save()     # save the user's post in 'Post' table
+            return redirect(request.META.get('HTTP_REFERER'))
             return redirect('home_feed_view')       # if post saved successfully redirect to home_feed_view
         else:
             print(form.errors)
             print('invalid')
+            return redirect(request.META.get('HTTP_REFERER'))
             return redirect('home_feed_view')
             return render(request, self.template_name, {'error':'Add image!'})   # otherwise render the error in the form
            
@@ -46,5 +48,14 @@ class PostCommentView(View):
         # "request.POST" contains information of all the fields which are submitted
         # So we can fetch a particular field by it's name attribute
         comment_text = request.POST.get('comment_text')
-        Comment.objects.create(post_id=post_id, text=comment_text)
+        if len(comment_text) != 0:
+            Comment.objects.create(post_id=post_id, text=comment_text)
+        print(request.user.username)
         return redirect(request.META.get('HTTP_REFERER'))
+
+class CommentsView(View):
+    def get(self, request, *args, id):
+        post_id = id
+        post = Post.objects.get(pk=post_id)
+        return render(request, 'core/popup_comment.html', {'post':post})
+    

@@ -88,6 +88,7 @@
 .post{
     width: 50%;
     padding: 20px 0px;
+    padding-bottom: 0;
     border-bottom: 2px solid grey;
     display: flex;
     flex-direction: column;
@@ -119,13 +120,13 @@
 }
 .post > .b{ 
     border: .5px solid lightgray;
-    padding: 20px;
+    /* padding: 20px; */
     display: flex;
     justify-content: center;
 }
 .post > .b > img{
     max-height: 500px;
-    max-width: 400px;
+    max-width: 500px;
 }
 .post > .c{
     display: flex;
@@ -153,8 +154,29 @@
 .post > .e > p{
     margin: 0;
 }
+.comment{
+    color: gray;
+    text-decoration: none;
+}
+.g{
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
 .post > .g input{
-    width: 98%;
+    width: 370px;
+    margin-bottom: 2%;
+    height: 30px;
+    border: none;
+}
+.post > .g  button{
+    cursor: pointer;
+    height: 40px;
+    width: 5vw;
+    border-radius: 100px;
+    background-color: rgb(236, 233, 233);
+    color: blue;
+    border: none;
 }
 .center > .tools{
     display: none;

@@ -30,7 +30,7 @@
           {% endif %}
         </button>
       </form>
-    <a href="{% url 'popup_comment' post.pk %}"><img src="{% static 'images/home_images/message.svg' %}" alt=""></a>
+    <a href="{% url 'comment_page' post.id %}"><img src="{% static 'images/home_images/message.svg' %}" alt=""></a>
       
       
       <img class="bookmark" src="{% static 'images/home_images/bookmark.png' %}" alt="">
@@ -42,7 +42,7 @@
     <div class="e">
       <p><span style="font-weight: bold;">{{ post.user.username }}</span> {% if post.text %}{{ post.text }}{% endif %} </p>
     </div>
-    <a class="comment" href="{% url 'popup_comment' post.id %}"><div class="f">View all comments</div></a>
+    <a class="comment" href="{% url 'comment_page' post.id %}"><div class="f">View all comments</div></a>
     <div class="g">
       <form method="POST" action="{% url 'post_comment_view' post.pk %}">
         {% csrf_token %}

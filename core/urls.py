@@ -10,6 +10,6 @@ urlpatterns = [
 
     path('post/like-unlike/<int:id>/', PostLikeUnlikeView.as_view(), name='post_like_unlike_view'),
     path('post/comment/<int:id>/', PostCommentView.as_view(), name='post_comment_view'),
-    path('post/comments/<int:id>/', CommentsView.as_view(), name='popup_comment')
+    path('post/comments/<int:id>/', CommentsView.as_view(), name='comment_page')
     
 ]

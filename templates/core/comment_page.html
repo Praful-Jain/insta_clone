@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/home_css/popup_comment.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home_css/comment_page.css' %}">
 </head>
 <body>
-    <a href="{% url 'home_feed_view' %}"><button type="button"><div><img src="{% static 'images/home_images/home.svg' %}"  alt=""></div></button></a>
+    <a href="{% url 'home_feed_view' %}"><button type="button"><img src="{% static 'images/comment_image/close.svg' %}"  alt=""></button></a>
     <div class="main">
         <div class="a">
             <img src="{{ post.image.url }}" alt="">   <!-- accessing media image -->

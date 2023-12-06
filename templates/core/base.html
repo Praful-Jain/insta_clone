@@ -5,15 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Instagram</title>
     <link rel="stylesheet" href="{% static 'css/home_css/homepage.css' %}">
     <link rel="stylesheet" href="{% static 'css/home_css/popup_post.css' %}">
-    <!-- <link rel="stylesheet" href="{% static 'css/home_css/popup_comment.css' %}"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-ezH3R2z8rM8iJQL7E1Dt5ewJkviqZIuywCcFay1meiH0FUpnTOw8gF7JKDA9D4S+Q" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
-        
+
         {% include 'core/navbar.html' %}
 
         <div class="center">
@@ -21,18 +20,7 @@
                 <img src="{% static 'images/home_images/instagramlogo.png' %}" alt="">
                 <input type="text" placeholder="Search">
             </div>
-
-            <div class="stories">
-                <div><img src="{% static 'images/status_dummy/me.png' %}" alt=""></div>
-                <div><img src="{% static 'images/status_dummy/james.png' %}" alt=""></div>
-                <div><img src="{% static 'images/status_dummy/tony.png' %}" alt=""></div> 
-                <div><img src="{% static 'images/status_dummy/ratan.png' %}" alt=""></div> 
-                <div><img src="{% static 'images/status_dummy/peter.png' %}" alt=""></div> 
-                <div><img src="{% static 'images/status_dummy/bill1.png' %}" alt=""></div> 
-                <div><img src="{% static 'images/status_dummy/narayan.png' %}" alt=""></div> 
-                <div><img src="{% static 'images/status_dummy/spiritual.png' %}" alt=""></div>
-            </div>
-
+            {% include 'core/stories.html' %}
             {% include 'core/post.html' %}
             {% include 'core/tools.html' %}
         </div>
@@ -43,7 +31,6 @@
         </div>
 
         <script type="module" src="{% static 'javascript/home_js/homepage.js' %}"></script>
-        
     </div>
 </body>
 </html>

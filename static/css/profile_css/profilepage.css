@@ -30,7 +30,6 @@
     flex-direction: column;
     gap: 30px;
 }
-
 .tools button{
     background: none;
     border: none;
@@ -64,8 +63,15 @@
     height: 100vw;
     display: flex;
     flex-direction: column;
-    /* background-color: antiquewhite; */
 }
+
+.center > .tools{
+    display: none;
+}
+.center > .search{
+    display: none;
+}
+
 .head{
     display: flex;
     padding: 40px;
@@ -93,7 +99,6 @@
     flex-direction: column;
     gap: 10px;
 }
-
 .c{
     padding-top: 20px;
     display: flex;
@@ -120,6 +125,43 @@
     margin: 0;
 }
 
+.nav{
+    display: flex;
+    justify-content: center;
+}
+.nav button{
+    height: 40px;
+    background: none;
+    border: .5px solid lightgray;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.pics{
+    display: flex;
+    flex-direction: column;
+}
+
+.posted_img{  
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.posted_img img{
+    height: 30vh;
+    width: 16.4vw;
+}
+.saved_img{
+    background-color: aliceblue;
+    display: none;
+    flex-wrap: wrap;
+    gap: 5px;   
+}
+.saved_img img{
+    height: 30vh;
+    width: 16.4vw;
+}
+
+
 @media (min-width: 800px) and (max-width: 1300px) {
     .navbar{
         width: 50px;
@@ -142,6 +184,9 @@
     .center{
         width: 90vw;
     }
+    .pics img{
+        width: 29.5vw;
+    }
 }
 
 @media (max-width: 800px){
@@ -154,5 +199,67 @@
     }
     .center{
         width: 100vw;
+    }
+    .head{
+        font-size: 15px;
+        gap: 10px;
+    }
+    .head .add{
+        width: 10vw;
+        height: 9vw;
+    }
+    .head .profile_img{
+        width: 25vw;
+        height: 25vw;
+    }
+    .head .b .c button{
+        font-size: 15px;
+        width: auto; 
+    }
+    .pics img{
+        width: 32vw;
+        height: 45vw;
+    }
+
+    .center > .search{
+        display: flex;
+        align-items: center;
+        width: 93%;
+        padding: 10px;
+        border-bottom: 1px solid gray;
+        position: relative;
+    }
+    .center > .search > input{
+        
+        position: absolute;
+        right: 5%;
+        background-color: lightgray;
+        opacity: .6;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .center > .tools{
+        width: 100%;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        background-color: white;
+        padding: 20px;
+        justify-content: center;
+        gap: 25px;
+        border: .5px solid lightgray;
+    }
+    .center > .tools > button{
+        padding: 0;
+        margin: 0;
+        height: 10px;
+    }
+    .center > .tools p{
+        display: none;
+    }
+    .center > .tools .thread,
+    .center > .tools .more{
+        display: none;
     }
 }

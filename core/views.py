@@ -55,5 +55,5 @@ class CommentsView(View):
     def get(self, request, *args, id):
         post_id = id
         post = Post.objects.get(pk=post_id)
-        return render(request, 'core/popup_comment.html', {'post':post})
+        return render(request, 'core/comment_page.html', {'post':post})
     

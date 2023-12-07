@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=for, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profile_css/profile_edit.css' %}">
+</head>
+<body>
+    <a href="{% url 'profile_view' request.user.username %}"><button type="button"><img src="{% static 'images/profile_images/close.svg' %}"  alt=""></button></a>
+    <div class="main">
+        <div class="title">
+           Edit Profile
+        </div>
+        <div class="editprofile">
+            <form method="post" action="{% url 'profile_edit_view' request.user.username %}" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                <table>
+                    {% for field in form %}
+                        <tr>
+                            <th>{{ field.label_tag }}</th>
+                            <td>
+                                {% if field.name == "picture" %}
+                                    {% if user.picture %}
+                                        <img class="profile_img" id="profile-image-preview" src="{{ field.value.url }}" alt="Profile Image">
+                                    {% else %}
+                                        <img class="profile_img" id="profile-image-preview" src="{% static 'images/home_images/profile.svg' %}" alt="User_image">
+                                    {% endif %}
+                                    <input type="file" name="{{ field.name }}" accept="image/*" id="{{ field.id }}" onchange="previewImage(this)">
+                                {% else %}
+                                <div>
+                                    {{ field }}
+                                    <p style="padding: -10px; margin: 5px; font-size: 10px;">{{ field.help_text}}</p> 
+                                </div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% for error in field.errors %}
+                            <p class="error" style="color: red;">{{ error }}!</p>
+                        {% endfor %}
+                    {% endfor %}
+                </table>                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script type="module" src="{% static 'javascript/profile_edit_js/edit.js' %}"></script>
+</body>
+</html>

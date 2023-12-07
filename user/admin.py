@@ -15,12 +15,14 @@ class CustomUserAdmin(UserAdmin):
     # for adding user .. fieldsets
     add_fieldsets = (
         ('Personal Details',{'fields':('email','full_name','username','picture', 'password1', 'password2')}),
-        ('Permissions', {'fields':('is_staff','is_active')})
+        ('Permissions', {'fields':('is_staff','is_active')}),
+        ('Optional', {'fields':('bio','website', 'phonenumber', 'gender', 'is_private_account')})
     )
     # for changing user fields .. fieldsets
     fieldsets = (
         ('Personal Details',{'fields':('email','full_name','username','picture')}),
-        ('Permissions', {'fields':('is_staff','is_active')})
+        ('Permissions', {'fields':('is_staff','is_active')}),
+        ('Optional', {'fields':('bio','website', 'phonenumber', 'gender', 'is_private_account')})
     )
     
 admin.site.register(User, CustomUserAdmin)      # register our customUserAdmin

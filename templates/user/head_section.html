@@ -11,8 +11,8 @@
     </div>
     <div class="b">
         <div class="c">
-            <p>{{user.username}}</p>
-            <button>Edit Profile</button>
+            <p>{{request.user.username}}</p>
+            <a href="{% url 'profile_edit_view' request.user.username %}"><button>Edit Profile</button></a>
             <button>View archive</button>
             <img src="{% static 'images/profile_images/settings.png' %}" alt="">
         </div>

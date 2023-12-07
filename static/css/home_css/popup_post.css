@@ -4,6 +4,13 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    z-index: 100;
+}
+.create_post *{
+    z-index: 100;
+}
+.popup_post *{
+    z-index: 100;
 }
 
 .popup_post{

@@ -17,10 +17,11 @@
             <img src="{% static 'images/profile_images/settings.png' %}" alt="">
         </div>
 
-        <div class="d">
-            <p><strong>{{user.post_set.count}}</strong> posts</p>
-            <p><strong>210</strong> followers</p>
-            <p><strong>326</strong> following</p>
+        <div class="d"> 
+            <p><strong>{{ request.user.post_set.count }}</strong> posts</p>       <!-- Number of posts posted by the user -->
+            <!-- created property in 'User' table which reverse accesses the 'Follower' table and gets the 'current users' followers and followings -->
+            <p><strong>{{ request.user.follower_count  }}</strong> followers</p>
+            <p><strong>{{ request.user.following_count }}</strong> following</p>
         </div>
         <div class="e">
             <h5>{{user.full_name}}</h5>

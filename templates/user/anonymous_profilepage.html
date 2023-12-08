@@ -1,1 +1,74 @@
-<h1>Hii</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user.full_name }}</title>
+    <link rel="stylesheet" href="{% static 'css/profile_css/authenticated_profilepage.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-ezH3R2z8rM8iJQL7E1Dt5ewJkviqZIuywCcFay1meiH0FUpnTOw8gF7JKDA9D4S+Q" crossorigin="anonymous">    
+</head>
+<body>
+    <div class="container">
+        {% include 'core/navbar.html' %}
+        <div class="main">
+            <div class="center">
+                {% include 'user/search.html' %}
+
+                <div class="head">
+                    <div class="a">
+                        {% if user.picture %}
+                        <img class="profile_img" src="{{ user.picture.url }}" alt="">
+                        {% else %}
+                        <img class="profile_img" src="{% static 'images/home_images/profile.svg' %}" alt="User_image">
+                        {% endif %}
+                        <img class="add" src="{% static 'images/profile_images/add.png' %}" alt="">
+                    </div>
+                    <div class="b">
+                        <div class="c">
+                            <p>{{user.username}}</p>
+                            <form method="POST" action="{% url 'follow_unfollow_view' user.username %}">
+                                {% csrf_token %}
+                                <button type="submit" style="cursor: pointer;">
+                                  {% if request.user in user.following_users %}   <!-- User has already followed this user, show the unfollow button -->
+                                    Unfollow
+                                  {% else %}
+                                    Follow
+                                  {% endif %}
+                                </button>
+                            </form>
+                            <img src="{% static 'images/profile_images/settings.png' %}" alt="">
+                        </div>
+
+                        <div class="d">
+                            <p><strong>{{ user.post_set.count }}</strong> posts</p>     <!-- Number of posts posted by the user -->
+                            <!-- created property in 'User' table which reverse accesses the 'Follower' table and gets the 'current users' followers and followings -->
+                            <p><strong>{{ user.follower_count  }}</strong> followers</p>
+                            <p><strong>{{ user.following_count }}</strong> following</p>
+                        </div>
+                        <div class="e">
+                            <h5>{{user.full_name}}</h5>
+                        </div>
+                    </div>  
+                </div>
+
+                {% include 'user/nav.html' %}                   
+
+                <div class="pics">
+                    <div class="posted_img">
+                        <img src="{% static 'images/status_dummy/bill.png' %}" alt="">
+                        <img src="{% static 'images/status_dummy/james.png' %}" alt="">
+                        <img src="{% static 'images/status_dummy/spiritual.png' %}" alt="">
+                        <img src="{% static 'images/status_dummy/me.png' %}" alt="">
+                        <img src="{% static 'images/status_dummy/narayan.png' %}" alt="">
+                        <img src="{% static 'images/status_dummy/ratan.png' %}" alt="">
+                    </div>
+                </div>
+                              
+                {% include 'core/tools.html' %}
+            </div>
+        </div>
+    </div>
+    <script type="module" src="{% static 'javascript/profile_js/profilepage.js' %}"></script>
+</body>
+</html>

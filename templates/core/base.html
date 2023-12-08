@@ -15,6 +15,8 @@
 
         {% include 'core/navbar.html' %}
 
+        <div class="search"></div>
+        
         <div class="center">
             <div class="head">
                 <img src="{% static 'images/home_images/instagramlogo.png' %}" alt="">
@@ -23,6 +25,8 @@
             {% include 'core/stories.html' %}
             {% include 'core/post.html' %}
             {% include 'core/tools.html' %}
+    {% include 'core/popup_post.html' %}        <!--INCLUDING POST POPUP-->
+
         </div>
 
         <div class="suggestion">

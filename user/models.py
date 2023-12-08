@@ -28,4 +28,21 @@ class User(AbstractUser):
     
     def __str__(self):
         return self.email
-        
+    
+    @property
+    def follower_count(self):       # Property to get the count of users following the current user.
+        count = self.follow_followed.count()
+        return count
+    
+    @property
+    def following_count(self):      # Property to get the count of users whom the current user is following.
+        count = self.follow_follower.count()
+        return count
+    
+    @property
+    def followed_users(self):       # Property to get a queryset of users followed by the current user.
+        return User.objects.filter(follow_followed__user=self)
+
+    @property
+    def following_users(self):      #  Property to get a queryset of users following the current user.
+        return User.objects.filter(follow_follower__followed=self)

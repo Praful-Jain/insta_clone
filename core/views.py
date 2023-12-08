@@ -2,7 +2,8 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.views.generic import View  # it directly renders our template
 from core.forms import PostCreateForm
-from core.models import Post, Like, Comment
+from core.models import Post, Like, Comment, Follow
+from user.models import User
 
 class HomeView(View):
     template_name = 'core/base.html'
@@ -51,9 +52,22 @@ class PostCommentView(View):
         print(request.user.username)
         return redirect(request.META.get('HTTP_REFERER'))
 
+
 class CommentsView(View):
     def get(self, request, *args, id):
         post_id = id
         post = Post.objects.get(pk=post_id)
         return render(request, 'core/comment_page.html', {'post':post})
     
+       
+class FollowUnfollowView(View):
+    def post(self,request, *args, **kwargs):
+        username = kwargs.get('username')
+        profile_user = User.objects.get(username = username)
+        try:
+            follow_instance = Follow.objects.get(user=request.user, followed=profile_user)          # Try to get the existing Follow instance
+            follow_instance.delete()        # If the instance exists, delete it (unfollow)
+        except:
+            Follow.objects.create(user=request.user, followed=profile_user)         # If the Follow instance does not exist, create it (follow)
+        return redirect(request.META.get('HTTP_REFERER'))
+        return redirect('profile_view', username = username)

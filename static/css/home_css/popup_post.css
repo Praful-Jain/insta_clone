@@ -4,18 +4,12 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    z-index: 100;
-}
-.create_post *{
-    z-index: 100;
-}
-.popup_post *{
-    z-index: 100;
 }
 
 .popup_post{
     border: 1px solid;
-    width: 400px;
+    width: 50vw;
+    height: 50vh;
     border-radius: 5px;
     padding: 20px;
     padding-top: 0;
@@ -25,15 +19,14 @@
     left: auto;
     margin: auto;
     opacity: 0;
+    z-index: 100;
     transition: top 0ms ease-in-out 200ms,
                 opacity 200ms ease-in-out 0ms,
                 transform 20ms ease-in-out 0ms;
 }
 
-
 .popup_post.active1 {
-    top: 15%;
-    left: 200%;
+    top: 20%;
     opacity: 1;
     transition: top 0ms ease-in-out 0ms,
     opacity 200ms ease-in-out 0ms,
@@ -50,6 +43,8 @@
     border-radius: 100%;
     background-color: lightgray;
     cursor: pointer;
+    position: absolute;
+    right: 5%;
 }
 
 .popup_post form{
@@ -59,8 +54,8 @@
 }
 
 .popup_post form textarea{
-    height: 70px;
-    width: 300px;
+    height: 25vh;
+    width: 30vw;
     border-radius: 10px;
 }
 .popup_post form .browse{

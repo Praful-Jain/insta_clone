@@ -28,6 +28,11 @@ class Post(models.Model):
         count = self.like_set.count()
         return count
 
+    @property
+    def comments_count(self):  
+        count = self.comment_set.count()
+        return count
+
     # to get the number of users liked a particular post
     @property
     def liked_users(self):
@@ -72,7 +77,6 @@ class Follow(models.Model):
     # To resolve this alter the related_name in relationships explicitly
     user = models.ForeignKey(User, related_name='follow_follower', on_delete=models.CASCADE, editable=False)
     followed = models.ForeignKey(User, related_name='follow_followed', on_delete=models.CASCADE)
-    is_follow = models.BooleanField(default=True)
     followed_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     

@@ -1,14 +1,29 @@
 {% load static %}
 
 <div class="pics">
+    {% if request.user.post_set.count != 0 %}
     <div class="posted_img">
-        <img src="{% static 'images/status_dummy/bill.png' %}" alt="">
-        <img src="{% static 'images/status_dummy/james.png' %}" alt="">
-        <img src="{% static 'images/status_dummy/spiritual.png' %}" alt="">
-        <img src="{% static 'images/status_dummy/me.png' %}" alt="">
-        <img src="{% static 'images/status_dummy/narayan.png' %}" alt="">
-        <img src="{% static 'images/status_dummy/ratan.png' %}" alt="">
+        {% for post in request.user.post_set.all %}
+        <div class="post">
+            <img src="{{ post.image.url }}" alt="">
+            <div>
+                <div style="display: flex; gap: 5px;">
+                    <img style="padding: 0; margin: 0;" class="like" src="{% static '/images/profile_images/notification.svg' %}" alt="">
+                    <p style="padding: 0; margin: 0;">{{post.likes_count}}</p>
+                </div>
+                <div style="display: flex; gap: 5px;">
+                    <img class="comment" src="{% static '/images/profile_images/message.svg' %}" alt="">
+                    <p style="padding: 0; margin: 0;">{{post.comments_count}}</p>
+                </div>
+                <div style="display: flex; gap: 5px;">
+                    <img class="delete" src="{% static '/images/profile_images/delete.svg' %}" alt="">
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
+    {% endif %}
+
     <div class="saved_img">
         <img src="{% static 'images/status_dummy/ratan.png' %}" alt="">
         <img src="{% static 'images/status_dummy/narayan.png' %}" alt="">

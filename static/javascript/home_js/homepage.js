@@ -6,12 +6,46 @@ document.querySelector(".close_btn1").addEventListener("click", function () {
   document.querySelector(".popup_post").classList.remove("active1");
 });
 
-document.querySelector(".comment").addEventListener("click", function () {
-  document.querySelector(".popup_comment").classList.add("active2");
-});
+// document.querySelector("#search").addEventListener("click", function () {
+//   var searchElement = document.querySelector(".search");
+//   var divElement = document.querySelector(".tools button > div");
 
-document.querySelector(".close_btn2").addEventListener("click", function () {
-  document.querySelector(".popup_comment").classList.remove("active2");
+//   searchElement.classList.toggle("active2");
+
+//   // Check if the "active2" class is present
+//   var isActive = searchElement.classList.contains("active2");
+
+//   // Toggle display of paragraphs based on the "active2" class
+//   document.querySelectorAll(".tools button > div > p").forEach(function(paragraph) {
+//       paragraph.classList.toggle("hide-paragraphs", isActive);
+//   });
+
+//   // Toggle width of the div based on the "active2" class
+//   divElement.style.width = isActive ? "50%" : "100%"; // or any other appropriate width value
+// });
+
+
+document.getElementById("search").addEventListener("click", function(){
+  document.querySelector(".search").classList.toggle("active2");
+  
+  if (window.innerWidth >= 1300) { 
+
+    // Check if the "active2" class is present
+    var isActive =  document.querySelector(".search").classList.contains("active2");
+    var divElement = document.querySelector(".navbar");
+    var logo = document.querySelector(".navbar > .logo") 
+    var icon = document.querySelector(".navbar > .icon")
+
+    document.querySelectorAll(".tools button > div > p").forEach(function(paragraph) {
+      paragraph.style.display = isActive ? "none" : "block"; // or any other appropriate display value
+    });
+  
+    divElement.style.width = isActive ? "50px" : "10vw"; // or any other appropriate width value
+    logo.style.display = isActive ? "none" : "block";
+    icon.style.display = isActive ? "inline" : "none";
+    icon.style.height = isActive ? "30px" : "1px";
+
+}
 });
 
 // function likePost(postId) {

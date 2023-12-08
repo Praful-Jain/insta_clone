@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.views.generic import View  # it directly renders our template
 from user.models import User
+from core.models import Follow
 from user.forms import UserProfileEditForm
 
 
@@ -38,5 +39,3 @@ class ProfileEditView(View):
             print('failure')
             print(form.errors)
             return render(request, self.template_name, {'form':form})   # otherwise render the error in the form
-
-         

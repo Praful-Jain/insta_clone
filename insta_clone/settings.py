@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'insta_clone.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'insta',
-        'USER': 'praful',
-        'PASSWORD': 'Mountblue@123',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'dAE4ebB-5b1eD63E4Cea-64G-eDB-FG4',
+        'HOST': 'roundhouse.proxy.rlwy.net',
+        'PORT': '52402',
     }
 }
 

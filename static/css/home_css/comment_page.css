@@ -6,7 +6,7 @@ body{
     align-items: center;
     background-color: rgb(236, 232, 232);
     font-family: sans-serif;
-    background-image: url('/static/images/comment_image/background.png');
+    background-image: url('/static/images/profile_images/background.png');
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;

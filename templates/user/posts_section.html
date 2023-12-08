@@ -12,15 +12,27 @@
                     <p style="padding: 0; margin: 0;">{{post.likes_count}}</p>
                 </div>
                 <div style="display: flex; gap: 5px;">
-                    <img class="comment" src="{% static '/images/profile_images/message.svg' %}" alt="">
+                    <a href="{% url 'comment_page' post.id %}"><img src="{% static 'images/home_images/message.svg' %}" alt=""></a>
                     <p style="padding: 0; margin: 0;">{{post.comments_count}}</p>
                 </div>
                 <div style="display: flex; gap: 5px;">
-                    <img class="delete" src="{% static '/images/profile_images/delete.svg' %}" alt="">
-                </div>
+                    <a data-toggle="modal" data-target="#post_delete_{{ post.pk }}"><img class="delete" src="{% static '/images/profile_images/delete.svg' %}" alt=""></a>
+                </div>    
             </div>
         </div>
         {% endfor %}
+
+        <div id="deleteModal" class="modal" style="margin-top: 20%;">
+            <div class="modal-content">
+                <!-- Close button -->
+                <span class="close12" onclick="document.getElementById('deleteModal').style.display='none'">&times;</span>
+                <p>Are you sure you want to delete this post?</p>
+                <button id="confirmDelete">Delete</button>
+                <button id="cancelDelete">Cancel</button>
+            </div>
+        </div>
+
+
     </div>
     {% endif %}
 

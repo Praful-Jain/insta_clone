@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ user.full_name }}</title>
-    <link rel="stylesheet" href="{% static 'css/profile_css/authenticated_profilepage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile_css/anonymous_profilepage.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-ezH3R2z8rM8iJQL7E1Dt5ewJkviqZIuywCcFay1meiH0FUpnTOw8gF7JKDA9D4S+Q" crossorigin="anonymous">    
 </head>
 <body>
@@ -55,14 +55,25 @@
                 {% include 'user/nav.html' %}                   
 
                 <div class="pics">
-                    <div class="posted_img">
-                        <img src="{% static 'images/status_dummy/bill.png' %}" alt="">
-                        <img src="{% static 'images/status_dummy/james.png' %}" alt="">
-                        <img src="{% static 'images/status_dummy/spiritual.png' %}" alt="">
-                        <img src="{% static 'images/status_dummy/me.png' %}" alt="">
-                        <img src="{% static 'images/status_dummy/narayan.png' %}" alt="">
-                        <img src="{% static 'images/status_dummy/ratan.png' %}" alt="">
-                    </div>
+                    {% if user.post_set.count != 0 %}
+                        <div class="posted_img">
+                            {% for post in user.post_set.all %}
+                            <div class="post">
+                                <img src="{{ post.image.url }}" alt="">
+                                <div>
+                                    <div style="display: flex; gap: 5px;">
+                                        <img style="padding: 0; margin: 0;" class="like" src="{% static '/images/profile_images/notification.svg' %}" alt="">
+                                        <p style="padding: 0; margin: 0;">{{post.likes_count}}</p>
+                                    </div>
+                                    <div style="display: flex; gap: 5px;">
+                                        <a href="{% url 'comment_page' post.id %}"><img src="{% static 'images/home_images/message.svg' %}" alt=""></a>
+                                        <p style="padding: 0; margin: 0;">{{post.comments_count}}</p>
+                                    </div>   
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 </div>
                               
                 {% include 'core/tools.html' %}

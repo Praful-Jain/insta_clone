@@ -53,9 +53,13 @@
 
 
 .search {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
     width: 17vw;
     height: 100vh;
-    background-color: aliceblue;
+    background-color: white;
+    border: .5px solid lightgray;
     border-radius: 20px;
     position: absolute;
     left: -150%; /* Start off-screen to the left */
@@ -195,7 +199,6 @@
     border-radius: 100px;
     background-color: rgb(236, 233, 233);
     color: blue;
-    background-color: ;
     border: none;
 }
 .center > .tools{

@@ -1,0 +1,150 @@
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+.container1{
+  text-align: center;
+  display: flex;
+  gap: 20px;
+}
+
+.phone{
+  max-height: 550px;
+}
+.container1 .page{
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  padding-bottom: 15px;
+  border: 1.5px solid gainsboro;
+}
+.container1 .title{
+  padding: 30px 0;
+}
+.login-form{
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.login-form input{
+  margin-bottom: 5px;
+  border: 1px solid gray;
+  background-color: lightgrey;
+  border-radius: 3px;
+  outline: none;
+  height: 30px;
+  padding: 5px;
+  font-size: 17px;
+  opacity: .4;
+}
+.login-form input::placeholder{
+  color: black;
+  font-size: 13px;
+  transition: .3s ease;
+}
+/* on click */
+.login-form input:focus::placeholder{
+  font-size: 10px;
+  transform: translateY(-10px);   /* on click go up by 10px */
+}
+
+.login-form button{
+  background: rgb(7, 49, 187);
+  padding: 5px 0;
+  margin-top: 5px;
+  color: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;  /* when our cursor points to this button its type changes */
+  opacity: .8;
+}
+.option{
+  width: 75%;
+  color: grey;
+  margin: 10px 0;
+  font-weight: bold;
+  position: relative;
+}
+/* for ----- OR ----- */
+.option:before{
+  position: absolute; /* positioned relative to 'OR' (nearest positioned ancestor) */
+  content: '';
+  width: 37%;
+  height: 2px;
+  background: grey;
+  left: 0;
+  top: 50%;
+}
+.option:after{
+  position: absolute; /* positioned relative to 'OR' (nearest positioned ancestor) */
+  content: '';
+  width: 37%;
+  height: 2px;
+  background: grey;
+  right: 0;
+  top: 50%;
+}
+
+.fblink{
+  margin-top: 15px;
+  width: 100%;
+}
+.fblink span{
+  font-size: 18px;
+  color: #021897;
+  margin-right: 5px;
+}
+.fblink a{
+  text-decoration: none;
+  font-weight: bold;
+  color: #021897;
+}
+
+.forget-id{
+  margin: 15px;
+}
+.forget-id a{
+  font-size: 15px;
+  text-decoration: none;
+  color: #025fd2;
+  font-weight: 500;
+}
+
+.sign-up{
+  width: 350px;
+  border: 1.5px solid gainsboro;
+  margin-top: 10px;
+  font-size: 15px;
+  background-color: white;
+}
+.sign-up a{
+  text-decoration: none;
+  color: #008aff;
+  margin-left: 5px;
+}
+.container1 > p{
+  font-size: 15px;
+}
+
+.main > button{
+  color: white;
+  background: black;
+  border: 1px solid;
+  height: 50px;
+  border-radius: 10px;
+  padding: 0 10px;
+  cursor: pointer;  /* when our cursor points to this button its type changes */
+}
+i{
+  font-size: 25px;
+}

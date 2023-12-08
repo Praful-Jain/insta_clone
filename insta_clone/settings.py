@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-o)_!8fco@zn2ey*bl6fq72m3s@)&%qvyxmrh33f3$=)dlwcg@i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -126,8 +126,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR.joinpath('staticfiles/')
 # By default django searches for  static files inside app's directory, that's why we are explicitly mentioning to search static files in the root directory
-STATICFILES_DIRS = [BASE_DIR.joinpath('static')]    
+STATICFILES_DIRS = [BASE_DIR.joinpath('static/')]    
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR.joinpath('media')
 
